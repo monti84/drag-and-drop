@@ -27,6 +27,7 @@ body {
 
 .page-container .main {
 	flex: 1 1 auto;
+	position: relative;
 }
 
 .page-container .main .row {
@@ -42,10 +43,57 @@ body {
 	align-items: center;
 	padding: 15px;
 	margin: 10px;
+	position: relative;
 }
+
+.page-container .main .row .col:before {
+	display: none;
+	content: '';
+	position: absolute;
+	width: 50%;
+	height: 50%;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.page-container .main .row .col.top:before {
+	display: block;
+	top: 0;
+	bottom: auto;
+}
+
+.page-container .main .row .col.bottom:before {
+	display: block;
+	bottom: 0;
+	top: auto;
+}
+
+.page-container .main .row .col.left:before {
+	display: block;
+	left: 0;
+	right: auto;
+}
+
+.page-container .main .row .col.right:before {
+	display: block;
+	right: 0;
+	left: auto;
+}
+
 
 .page-container .main .row .col .label {
 	margin: auto;
+}
+
+.page-container .main .row .col .label,
+.page-container .main .row .col .debug {
+	pointer-events: none; /* prevents dragend firing */	
+}
+
+.page-container .main .row .col .debug {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 12px;
 }
 
 .page-container .main .row .col-inner {
@@ -57,7 +105,7 @@ body {
 	flex: 0 0 auto;
 }
 
-.page-container .fields .field {
+.page-container .sidebar .fields .field {
 	border: 1px solid #dedede;
 	border-radius: 5px;
 	height: 35px;
@@ -66,6 +114,36 @@ body {
 	cursor: default;
 }
 
-.page-container .fields .field:not(:last-child) {
+.page-container .sidebar .fields .field[draggable='false'] {
+	opacity: 0.75;
+	cursor: not-allowed;
+}
+
+.page-container .sidebar .fields .field:not(:last-child) {
 	margin-bottom: 15px;
+}
+
+.debugOverlay {
+	position: absolute;	
+	top: 15px;
+	right: 15px;
+}
+
+.debugOverlay .indicator {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+}
+
+.debugOverlay .indicator.on {
+	background: green;
+}
+
+.debugOverlay .indicator.off {
+	background: red;
+}
+
+.debugOverlay .indicator:not(:last-child) {
+	margin-right: 5px;
 }

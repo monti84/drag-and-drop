@@ -2,8 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Drag & Drop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="shortcut icon" href="assets/images/favicon.ico"/>
     <link rel="stylesheet" href="assets/css/normalize.css" />
     <link rel="stylesheet" href="assets/css/demo.css" />
 </head>
@@ -12,7 +13,10 @@
 	<div class="page-container">
 		<section class="main" data-dropZoneID="main">
 			<div class="row">
-				<div class="col" data-fieldID="field-2"><div class="label">Field 2</div></div>
+				<div class="col" data-fieldID="field-2"><div class="label">Field 2</div><div class="debug"></div></div>
+			</div>
+			<div class="debugOverlay">
+				<div class="indicator targetElementIndicator on"></div>
 			</div>
 		</section>
 		
@@ -26,8 +30,10 @@
 				<div class="field disable-text_select" data-dropFieldID="field-5" draggable="true">Field 6</div>
 			</div>
 		</aside>
+	
 	</div>
 
 	<script src="assets/js/drag-and-drop.js"></script>
+	<script src="assets/js/drag-and-drop-demo.js"></script>
 </body>
 </html>
